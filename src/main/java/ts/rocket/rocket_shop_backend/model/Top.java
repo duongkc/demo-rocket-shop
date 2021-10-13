@@ -1,9 +1,6 @@
 package ts.rocket.rocket_shop_backend.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Class
@@ -19,6 +16,7 @@ public class Top {
     private String name;
     private int price;
     private String image;
+    @Column(name = "rocket_id")
     private long rocketId;
 
     public long getId() {
@@ -33,16 +31,16 @@ public class Top {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int getPrice() {
         return price;
     }
 
     public void setPrice(int price) {
         this.price = price;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getImage() {
@@ -53,5 +51,11 @@ public class Top {
         this.image = image;
     }
 
+    public long getRocketId() {
+        return rocketId;
+    }
 
+    public void setRocketId(long rocketId) {
+        this.rocketId = rocketId;
+    }
 }

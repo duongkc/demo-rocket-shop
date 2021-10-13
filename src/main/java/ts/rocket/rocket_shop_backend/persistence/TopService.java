@@ -13,11 +13,17 @@ import java.util.List;
  * @version 1.0
  */
 @Service
-public class TopService {
+public class TopService implements ITopService{
     @Autowired
     private TopRepository ts;
 
     public Iterable<Top> getPartsbyRocketId(Long id) {
         return ts.findAll();
+    }
+
+    @Override
+    public Iterable<Top> findByRocketId(long id) {
+        var parts = (Iterable<Top>) ts.findByRocketId(id);
+        return parts;
     }
 }

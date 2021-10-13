@@ -27,13 +27,13 @@ public class RocketService {
         return rocket0.orElse(null);
     }
 
-    public void addTopToRocket(Top top, long rocketId) {
-        System.out.println("test i'm in the service");
-        Rocket r = rr.findById(rocketId).get();
-        Top temp = tr.save(top);
-        r.setTop(temp);
-        rr.save(r);
-    }
+//    public void addTopToRocket(Top top, long rocketId) {
+//        System.out.println("test i'm in the service");
+//        Rocket r = rr.findById(rocketId).get();
+//        Top temp = tr.save(top);
+//        r.setTop(temp);
+//        rr.save(r);
+//    }
 
     public Iterable<Rocket> fetchAllRockets(){
         return rr.findAll();

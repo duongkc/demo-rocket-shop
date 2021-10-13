@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function callApi(){
+        var xhr = new XMLHttpRequest();   // oldschool   fetch API   ajax in jQuery
+        xhr.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                var antwoordObj = JSON.parse(this.responseText);
+                document.getElementById("uitkomst").innerHTML = antwoordObj.name;
+            }
+        }
+        xhr.open("GET","http://localhost:8082/rocketbyid/{2}", true);       // asynchroon
+        xhr.send();
+    }
+</script>
+<input type="button" value="Show Rocket" onclick=callApi()>
+<div id="uitkomst"></div>
+</body>
+</html>

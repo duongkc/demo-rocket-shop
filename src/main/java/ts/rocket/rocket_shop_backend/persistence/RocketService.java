@@ -17,8 +17,10 @@ public class RocketService {
     @Autowired
     private RocketRepository rr;
 
-    public Optional<Rocket> fetchRocketsWithId(long id) {
-        return rr.findById(id);
+    public Rocket fetchRocketsWithId(long id) {
+        Optional<Rocket> rocket0 = rr.findById(id);
+        return rocket0.get();
+
 
     }
 }

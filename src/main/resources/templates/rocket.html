@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <!-- JS libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <script>
     function callApi(){
         var xhr = new XMLHttpRequest();   // oldschool   fetch API   ajax in jQuery
         xhr.onreadystatechange = function(){
-            if(this.readyState == 4 && this.status == 200){
+            if(this.readyState === 4 && this.status === 200){
                 var antwoordObj = JSON.parse(this.responseText);
                 document.getElementById("uitkomst").innerHTML = antwoordObj.name;
             }
@@ -17,8 +20,26 @@
         xhr.open("GET","http://localhost:8082/rocketbyid/0", true);       // asynchroon
         xhr.send();
     }
+
+    function postAPI(){
+        var rocketId = document.getElementById("rocket_id").value;
+        $.post("http://localhost:8082/topparts",
+            {
+                id: rocketId
+            },
+        function(data){
+            console.log(data);
+        })
+    }
 </script>
 <input type="button" value="Show Rocket" onclick=callApi()>
 <div id="uitkomst"></div>
+
+<div>
+    <label for="rocket_id">Rocket id</label><br>
+    <input type="text" id="rocket_id"><br>
+    <input type="button" value="showing Parts" onclick=postAPI()>
+    <div id="parts"></div>
+</div>
 </body>
 </html>

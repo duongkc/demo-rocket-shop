@@ -1,12 +1,14 @@
 package ts.rocket.rocket_shop_backend.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ts.rocket.rocket_shop_backend.model.Rocket;
+import ts.rocket.rocket_shop_backend.model.Top;
 import ts.rocket.rocket_shop_backend.persistence.RocketService;
+import ts.rocket.rocket_shop_backend.persistence.TopRepository;
+import ts.rocket.rocket_shop_backend.persistence.TopService;
+
+import java.util.List;
 
 /**
  * Class
@@ -19,6 +21,12 @@ public class RocketEndpoint {
     @Autowired
     private RocketService rs;
 
+    @Autowired
+    private TopService ts;
+
+    @Autowired
+    private TopRepository tp;
+
     @CrossOrigin(origins = "", allowedHeaders ="")
     @GetMapping("rocketbyid/{id}")
     public Rocket rocketbyId(@PathVariable long id) {
@@ -26,4 +34,21 @@ public class RocketEndpoint {
         return rs.fetchRocketsWithId(id);
     }
 
+    @GetMapping("trying")
+    public void trying() {
+        long idraket = 0;
+        Top top = new Top();
+        rs.addTopToRocket(top, idraket);
+    }
+
+    @GetMapping("showrockets")
+    public Iterable<Rocket> allRockets(){
+        return rs.fetchAllRockets();
+    }
+
+    @CrossOrigin(origins = "", allowedHeaders ="")
+    @PostMapping("topparts")
+    public Iterable<Top> showTopPartsOfRocket(@RequestParam long id) {
+        return tp.findByRocketId(id);
+    }
 }

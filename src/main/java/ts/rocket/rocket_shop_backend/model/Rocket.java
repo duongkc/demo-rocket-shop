@@ -1,9 +1,6 @@
 package ts.rocket.rocket_shop_backend.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 /**
@@ -19,11 +16,12 @@ public class Rocket {
     private long id;
 
 //    relatie top
+    @OneToOne
+    private Top top;
 //    relatie middle
 //    relatie bottom
 
     private String name;
-    private LocalDateTime orderDate;
 
     public long getId() {
         return id;
@@ -41,11 +39,11 @@ public class Rocket {
         this.name = name;
     }
 
-    public LocalDateTime getOrderDate() {
-        return orderDate;
+    public Top getTop() {
+        return top;
     }
 
-    public void setOrderDate(LocalDateTime orderDate) {
-        this.orderDate = orderDate;
+    public void setTop(Top top) {
+        this.top = top;
     }
 }

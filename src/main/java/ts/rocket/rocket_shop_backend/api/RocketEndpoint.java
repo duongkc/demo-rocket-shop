@@ -24,8 +24,6 @@ public class RocketEndpoint {
     @Autowired
     private TopService ts;
 
-    @Autowired
-    private TopRepository tp;
 
     @CrossOrigin(origins = "", allowedHeaders ="")
     @GetMapping("rocketbyid/{id}")
@@ -34,12 +32,12 @@ public class RocketEndpoint {
         return rs.fetchRocketsWithId(id);
     }
 
-    @GetMapping("trying")
-    public void trying() {
-        long idraket = 0;
-        Top top = new Top();
-        rs.addTopToRocket(top, idraket);
-    }
+//    @GetMapping("trying")
+//    public void trying() {
+//        long idraket = 0;
+//        Top top = new Top();
+//        rs.addTopToRocket(top, idraket);
+//    }
 
     @GetMapping("showrockets")
     public Iterable<Rocket> allRockets(){
@@ -49,6 +47,6 @@ public class RocketEndpoint {
     @CrossOrigin(origins = "", allowedHeaders ="")
     @PostMapping("topparts")
     public Iterable<Top> showTopPartsOfRocket(@RequestParam long id) {
-        return tp.findByRocketId(id);
+        return ts.findByRocketId(id);
     }
 }

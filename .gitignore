@@ -19,7 +19,7 @@ target/
 *.iml
 *.ipr
 
-*.properties
+/src/main/resources/application-dev.properties
 
 ### NetBeans ###
 /nbproject/private/
@@ -33,3 +33,4 @@ build/
 
 ### VS Code ###
 .vscode/
+.mvn/

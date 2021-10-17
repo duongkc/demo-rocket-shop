@@ -9,5 +9,4 @@ public class RocketShopBackendApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RocketShopBackendApplication.class, args);
 	}
-
 }

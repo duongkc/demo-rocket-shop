@@ -51,6 +51,11 @@
 			<groupId>com.azure.spring</groupId>
 			<artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.microsoft.azure</groupId>
+			<artifactId>azure-keyvault-secrets-spring-boot-starter</artifactId>
+			<version>2.3.0</version>
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>

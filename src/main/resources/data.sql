@@ -1,3 +1,7 @@
+INSERT INTO rocket (id, name) VALUES
+(0, "rocket"),
+(1, "satellite"),
+(2, "rover");
 INSERT INTO top (id, name, price, image, rocket_id) VALUES
 (0, "Yellow top", 100000, "img/A1.png", 0),
 (1, "Red top", 250000, "img/A2.png", 0),

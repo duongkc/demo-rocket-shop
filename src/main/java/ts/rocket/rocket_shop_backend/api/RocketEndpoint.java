@@ -1,6 +1,7 @@
 package ts.rocket.rocket_shop_backend.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import ts.rocket.rocket_shop_backend.model.Rocket;
 import ts.rocket.rocket_shop_backend.model.Top;
@@ -26,7 +27,7 @@ public class RocketEndpoint {
 
 
     @CrossOrigin(origins = "", allowedHeaders ="")
-    @GetMapping("rocketbyid/{id}")
+    @GetMapping(value = "rocketbyid/{id}", produces = { MediaType.APPLICATION_JSON_VALUE})
     public Rocket rocketbyId(@PathVariable long id) {
 //        sanitisation, check input
         return rs.fetchRocketsWithId(id);

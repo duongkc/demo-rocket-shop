@@ -5,6 +5,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import ts.rocket.rocket_shop_backend.model.Rocket;
 import ts.rocket.rocket_shop_backend.model.Top;
+import ts.rocket.rocket_shop_backend.persistence.IdNameAndThumbnail;
 import ts.rocket.rocket_shop_backend.persistence.RocketService;
 import ts.rocket.rocket_shop_backend.persistence.TopRepository;
 import ts.rocket.rocket_shop_backend.persistence.TopService;
@@ -53,7 +54,7 @@ public class RocketEndpoint {
 
     @CrossOrigin(origins = "", allowedHeaders = "")
     @GetMapping(value = "maininfo", produces = { MediaType.APPLICATION_JSON_VALUE})
-    public Iterable<Rocket> showMainRocketInfo() {
+    public Iterable<IdNameAndThumbnail> showMainRocketInfo() {
         return rs.fetchMainInfo();
     }
 }

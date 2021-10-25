@@ -39,7 +39,7 @@ public class RocketService {
         return rr.findAll();
     }
 
-    public Iterable<Rocket> fetchMainInfo() {
-        return rr.findAllMainShips();
+    public Iterable<IdNameAndThumbnail> fetchMainInfo() {
+        return rr.findBy();
     }
 }

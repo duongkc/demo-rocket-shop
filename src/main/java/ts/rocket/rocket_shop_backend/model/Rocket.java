@@ -17,6 +17,7 @@ public class Rocket {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
+    private String thumbnail;
 //    relatie top
     @OneToMany
     @JoinColumn(name = "rocket_id")
@@ -45,6 +46,14 @@ public class Rocket {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
     }
 
     public List<Top> getTop() {

@@ -38,4 +38,8 @@ public class RocketService {
     public Iterable<Rocket> fetchAllRockets(){
         return rr.findAll();
     }
+
+    public Iterable<Rocket> fetchMainInfo() {
+        return rr.findAllMainShips();
+    }
 }

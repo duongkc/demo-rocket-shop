@@ -50,4 +50,10 @@ public class RocketEndpoint {
     public Iterable<Top> showTopPartsOfRocket(@RequestParam long id) {
         return ts.findByRocketId(id);
     }
+
+    @CrossOrigin(origins = "", allowedHeaders = "")
+    @GetMapping(value = "maininfo", produces = { MediaType.APPLICATION_JSON_VALUE})
+    public Iterable<Rocket> showMainRocketInfo() {
+        return rs.fetchMainInfo();
+    }
 }

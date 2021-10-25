@@ -14,6 +14,7 @@ import ts.rocket.rocket_shop_backend.model.Rocket;
 @Component
 public interface RocketRepository extends CrudRepository<Rocket, Long> {
 
-    @Query(value = "SELECT id, name, thumbnail FROM Rocket")
-    Iterable<Rocket> findAllMainShips();
+//    @Query(value = "SELECT id, name, thumbnail FROM Rocket")
+//    Iterable<Rocket> findAllMainShips();
+    Iterable<IdNameAndThumbnail> findBy();
 }

@@ -47,6 +47,14 @@ public class Rocket {
         this.name = name;
     }
 
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
+
     public List<Top> getTop() {
         return top;
     }

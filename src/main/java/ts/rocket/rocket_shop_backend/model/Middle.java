@@ -16,6 +16,7 @@ public class Middle {
     private String name;
     private int price;
     private String image;
+    private String thumbnail;
     @Column(name = "rocket_id")
     private long rocketId;
 
@@ -49,6 +50,14 @@ public class Middle {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
     }
 
     public long getRocketId() {

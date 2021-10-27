@@ -31,6 +31,10 @@ public class Rocket {
     @JoinColumn(name = "rocket_id")
     private List<Bottom> bottom;
 
+    @OneToMany
+    @JoinColumn(name = "rocket_id")
+    private List<Review> review;
+
 
     public long getId() {
         return id;
@@ -78,5 +82,13 @@ public class Rocket {
 
     public void setBottom(List<Bottom> bottom) {
         this.bottom = bottom;
+    }
+
+    public List<Review> getReview() {
+        return review;
+    }
+
+    public void setReview(List<Review> review) {
+        this.review = review;
     }
 }

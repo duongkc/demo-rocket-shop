@@ -27,7 +27,7 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       - uses: azure/mysql-action@v1
         with:
-          server-name: rocketshopback-server.mysql.database.azure.com
+          server-name: spaceshopdb.mysql.database.azure.com
           username: ${{secrets.AZURE_MYSQL_USER}}
           password: ${{ secrets.AZURE_MYSQL_PASSWORD }}
           # This is optional, you want to connect directly

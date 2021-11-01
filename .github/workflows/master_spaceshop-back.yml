@@ -21,6 +21,19 @@ jobs:
         with:
           java-version: '11'
 
+      - uses: actions/checkout@v1
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - uses: azure/mysql-action@v1
+        with:
+          server-name: rocketshopback-server.mysql.database.azure.com
+          username: ${{secrets.AZURE_MYSQL_USER}}
+          password: ${{ secrets.AZURE_MYSQL_PASSWORD }}
+          # This is optional, you want to connect directly
+          database: spaceshop
+          sql-file: './src/main/resources/test.sql'
+
       - name: Build with Maven
         run: mvn clean install
 
